@@ -6,7 +6,9 @@ use App\Http\Controllers\PagamentoController;
 use App\Http\Controllers\ReservasController;
 use App\Http\Controllers\ServicoController;
 use App\Http\Controllers\UsuarioController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+
 
 // LOGIN
 Route::get('/usuario', [UsuarioController::class, "pegarUsuario"])->name("UsuarioController.pegarUsuario");
@@ -19,8 +21,11 @@ Route::post('/recuperarsenha/email', [UsuarioController::class, "recuperarsenhae
 // RESERVAS
 Route::get('/reservas/horarios', [ReservasController::class, "todosHorarios"])->name("ReservasController.todosHorarios");
 Route::get('/reservas/servicos', [ReservasController::class, "todosServicos"])->name("ReservasController.todosServicos");
-Route::get('/reservas', [ReservasController::class, "index"])->name("ReservasController.index");
+Route::get('/reservas', [ReservasController::class, "todasReservas"])->name("ReservasController.todasReservas");
+Route::get('/reserva', [ReservasController::class, "reserva"])->name("ReservasController.reserva");
 Route::post('/reserva', [ReservasController::class, "cadastrar"])->name("ReservasController.cadastrar");
+Route::put('/reserva', [ReservasController::class, "editar"])->name("ReservasController.editar");
+Route::delete('/reserva', [ReservasController::class, "excluir"])->name("ReservasController.excluir");
 Route::post('/reserva/verificar', [ReservasController::class, "existeReserva"])->name("ReservasController.existeReserva");
 
 // PAGAMMENTO

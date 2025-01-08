@@ -218,11 +218,34 @@ class Barbearia extends Model
                 return NULL;
             }
 
-            $existe = DB::table($this->tabelaReserva)
+            $msg = NULL;
+
+            $existeReserva = DB::table($this->tabelaReserva)
                 ->where("barbearia_id", "=", $id)
                 ->first();
 
-            return $existe;
+            $existeHorario = DB::table($this->tabelaHorario)
+                ->where("barbearia_id", "=", $id)
+                ->first();
+
+            $existeServiço = DB::table($this->tabelaServico)
+                ->where("barbearia_id", "=", $id)
+                ->first();
+
+
+            if ($existeServiço) {
+                $msg = "Essa barbearia já está vinculada a um serviço";
+            }
+
+            if ($existeHorario) {
+                $msg = "Essa barbearia já está vinculada a um horário";
+            }
+
+            if ($existeReserva) {
+                $msg = "Essa barbearia já está vinculada a uma reserva";
+            }
+
+            return $msg;
         } catch (\Throwable $th) {
             return NULL;
         }

@@ -27,6 +27,24 @@ class Reservas extends Model
         }
     }
 
+    public function pegarPorId($id)
+    {
+        try {
+            if (!is_numeric($id)) {
+                return NULL;
+            }
+
+            $dados = DB::table($this->tabela)
+                ->where("id", "=", $id)
+                ->first(["id", "data", "hora", "servico_id"]);
+
+            return $dados;
+        } catch (\Throwable $th) {
+            return NULL;
+        }
+    }
+
+
     public function todosHorarios()
     {
         try {
@@ -52,12 +70,12 @@ class Reservas extends Model
         try {
             $data = isset($dados["data"]) ? $dados["data"] : NULL;
             $hora = isset($dados["hora"]) ? $dados["hora"] : NULL;
-            $barbearia_id = isset($dados["barbearia_id"]) ? $dados["barbearia_id"] : NULL;
+            $id = isset($dados["id"]) ? $dados["id"] : NULL;
 
             $existe = DB::table($this->tabela)
                 ->where("data", "=", $data)
                 ->where("hora", "=", $hora)
-                ->where("barbearia_id", "=", $barbearia_id)
+                ->where("id", "<>", $id)
                 ->first();
 
             if ($existe) {
@@ -100,6 +118,61 @@ class Reservas extends Model
             $resposta->msg = $th->getMessage();
 
             return $resposta;
+        }
+    }
+
+    public function editar($dados)
+    {
+        try {
+            $resposta = new stdClass;
+            $resposta->erro = FALSE;
+            $resposta->msg = NULL;
+
+            $id = isset($dados["id"]) ? $dados["id"] : NULL;
+            $data = isset($dados["data"]) ? $dados["data"] : NULL;
+            $hora = isset($dados["hora"]) ? $dados["hora"] : NULL;
+            $servico_id = isset($dados["servico"]) ? $dados["servico"] : NULL;
+
+            DB::table($this->tabela)->where("id", "=", $id)->update([
+                "data" => $data,
+                "hora" => $hora,
+                "servico_id" => $servico_id,
+            ]);
+
+            return $resposta;
+        } catch (\Throwable $th) {
+
+            print_r($th->getMessage());
+            $resposta = new stdClass;
+            $resposta->erro = TRUE;
+            $resposta->msg = $th->getMessage();
+
+            return $resposta;
+        }
+    }
+
+    public function excluir($id)
+    {
+        if (!is_numeric($id)) {
+            return NULL;
+        }
+
+        try {
+            $retorno = new stdClass;
+            $retorno->erro = FALSE;
+            $retorno->msg = NULL;
+
+            DB::table($this->tabela)
+                ->where("id", "=", $id)
+                ->delete();
+
+            return $retorno;
+        } catch (\Throwable $th) {
+            $retorno = new stdClass;
+            $retorno->erro = TRUE;
+            $retorno->msg = $th->getMessage();
+
+            return $retorno;
         }
     }
 }

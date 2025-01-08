@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -25,6 +26,7 @@ class Horario extends Model
             $dados = DB::table($this->tabela)
                 ->where("barbearia_id", "=", $barbearia_id)
                 ->orderBy("id", "desc")
+                ->limit(20)
                 ->get();
 
             return $dados;
@@ -103,7 +105,7 @@ class Horario extends Model
             $sql = DB::table($this->tabela);
             $sql->where("barbearia_id", "=", $barbearia_id);
             $sql->where("horario", "=", $horario);
-            if ($sql) {
+            if ($id) {
                 $sql->where("id", "<>", $id);
             }
 

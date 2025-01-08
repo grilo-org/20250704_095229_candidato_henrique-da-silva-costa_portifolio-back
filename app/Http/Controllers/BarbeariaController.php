@@ -95,7 +95,7 @@ class BarbeariaController extends Controller
         $existe = $this->barbearia->exsiteBarbeariaComEssasCondicoes($inputs);
 
         if ($existe) {
-            return response()->json(["error" => TRUE, "msg" => "Essa barbearia já existe"]);
+            return response()->json(["error" => TRUE, "msg" => "já existe uma barbearia nesse endereço"]);
         }
 
         $cadastrar = $this->barbearia->cadastrar($inputs);
@@ -149,7 +149,7 @@ class BarbeariaController extends Controller
         $existe = $this->barbearia->exsiteBarbeariaVinculada($id);
 
         if ($existe) {
-            return response()->json(["error" => TRUE, "msg" => "Essa barbearia já está sendo usada", "id" => NULL]);
+            return response()->json(["error" => TRUE, "msg" => $existe, "id" => NULL]);
         }
 
         $excluir = $this->barbearia->excluir($id);
