@@ -36,7 +36,7 @@ class Reservas extends Model
 
             $dados = DB::table($this->tabela)
                 ->where("id", "=", $id)
-                ->first(["id", "data", "hora", "servico_id"]);
+                ->first(["id", "data", "hora", "servico_id", "barbearia_id"]);
 
             return $dados;
         } catch (\Throwable $th) {
@@ -71,10 +71,12 @@ class Reservas extends Model
             $data = isset($dados["data"]) ? $dados["data"] : NULL;
             $hora = isset($dados["hora"]) ? $dados["hora"] : NULL;
             $id = isset($dados["id"]) ? $dados["id"] : NULL;
+            $barbearia_id = isset($dados["barbearia_id"]) ? $dados["barbearia_id"] : NULL;
 
             $existe = DB::table($this->tabela)
                 ->where("data", "=", $data)
                 ->where("hora", "=", $hora)
+                ->where("barbearia_id", "=", $barbearia_id)
                 ->where("id", "<>", $id)
                 ->first();
 
