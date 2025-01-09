@@ -73,7 +73,7 @@ class ReservasController extends Controller
         $existe = $this->modelReservas->existeDataEHora($inputs);
 
         if ($existe) {
-            return response()->json(["error" => TRUE, "msg" => "Horario já reservado"]);
+            return response()->json(["error" => TRUE, "msg" => "Horário já reservado"]);
         }
     }
 

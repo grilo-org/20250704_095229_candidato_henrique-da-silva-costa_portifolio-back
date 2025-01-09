@@ -191,6 +191,7 @@ class Barbearia extends Model
     {
         try {
             // $nome = isset($dados["nome"]) ? $dados["nome"] : NULL;
+            $id = isset($dados["id"]) ? $dados["id"] : NULL;
             $numero = isset($dados["numero"]) ? $dados["numero"] : NULL;
             $cep = isset($dados["cep"]) ? $dados["cep"] : NULL;
             // $logradouro = isset($dados["logradouro"]) ? $dados["logradouro"] : NULL;
@@ -201,6 +202,7 @@ class Barbearia extends Model
             $existe = DB::table($this->tabela)
                 ->where("numero", "=", $numero)
                 ->where("cep", "=", $cep)
+                ->where("id", "<>", $id)
                 ->first();
 
             return $existe;

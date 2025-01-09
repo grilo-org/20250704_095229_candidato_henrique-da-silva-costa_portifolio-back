@@ -95,7 +95,7 @@ class BarbeariaController extends Controller
         $existe = $this->barbearia->exsiteBarbeariaComEssasCondicoes($inputs);
 
         if ($existe) {
-            return response()->json(["error" => TRUE, "msg" => "já existe uma barbearia nesse endereço"]);
+            return response()->json(["error" => TRUE, "msg" => "Já existe uma barbearia nesse endereço"]);
         }
 
         $cadastrar = $this->barbearia->cadastrar($inputs);
@@ -127,6 +127,12 @@ class BarbeariaController extends Controller
 
         if (strlen($telefone) > 15) {
             return response()->json(["error" => TRUE, "msg" => "O valor não pode ter mais que 8 caracteres"]);
+        }
+
+        $existe = $this->barbearia->exsiteBarbeariaComEssasCondicoes($inputs);
+
+        if ($existe) {
+            return response()->json(["error" => TRUE, "msg" => "Já existe uma barbearia nesse endereço"]);
         }
 
         $editar = $this->barbearia->editar($inputs);
