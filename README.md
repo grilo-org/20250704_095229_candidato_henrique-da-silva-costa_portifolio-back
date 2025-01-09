@@ -8,7 +8,7 @@ Em seguida abra o projeto e rode no teminal (composer install).
 
 Depois tem um arquivo .env.example, renomeie para .env.
 
-Agora nesse arquivo você vai configurar o seu banco de dados desse jeito
+Agora nesse arquivo você vai configurar o seu banco aqui onde mostra na imagem abaixo
 
 
 ![image](https://github.com/user-attachments/assets/c7df2030-0cdd-485e-9772-38a8220b21e8)
