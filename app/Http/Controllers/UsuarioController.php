@@ -43,7 +43,7 @@ class UsuarioController extends Controller
         $request->validate(
             [
                 "nome" => "required|max:255",
-                "email" => "required|email||max:255",
+                "email" => "required|email|max:255",
                 "senha" => "required|max:255|min:3",
             ]
         );
@@ -114,7 +114,7 @@ class UsuarioController extends Controller
     public function recuperarsenhaemail(Request $request)
     {
         $request->validate([
-            "email" => "required|email|max:255"",
+            "email" => "required|email|max:255",
         ]);
 
         $inputs = $request->all();
