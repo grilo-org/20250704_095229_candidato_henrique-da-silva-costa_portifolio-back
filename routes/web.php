@@ -35,7 +35,6 @@ Route::get('/pagamentopix', [PagamentoController::class, "pagamentoPix"])->name(
 
 //BARBEARIA
 Route::get("/barbearia/reservas", [BarbeariaController::class, "reservas"])->name("BarbeariaController.reservas");
-Route::get("/barbearia/paginacao", [BarbeariaController::class, "paginacao"])->name("BarbeariaController.paginacao");
 Route::get("/barbearia", [BarbeariaController::class, "pegarBarbeariasPorId"])->name("BarbeariaController.pegarBarbeariasPorId");
 Route::get("/barbearias", [BarbeariaController::class, "todos"])->name("BarbeariaController.todos");
 Route::get("/barbearias/filtros", [BarbeariaController::class, "pegarBarbeariasPorFiltro"])->name("BarbeariaController.pegarBarbeariasPorFiltro");

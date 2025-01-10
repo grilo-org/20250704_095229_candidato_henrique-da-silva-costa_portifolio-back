@@ -29,13 +29,6 @@ class BarbeariaController extends Controller
         return response()->json($barbearias);
     }
 
-    public function paginacao()
-    {
-        $barbearias = $this->barbearia->paginacao();
-
-        return response()->json($barbearias);
-    }
-
     public function todos()
     {
         $barbearias = $this->barbearia->todasDisponiveis();

@@ -29,17 +29,6 @@ class Barbearia extends Model
         }
     }
 
-    public function pagincao()
-    {
-        try {
-            $dados = DB::table($this->tabela)->paginate(4);
-
-            return $dados;
-        } catch (\Throwable $th) {
-            return [];
-        }
-    }
-
     public function todasDisponiveis()
     {
         try {
