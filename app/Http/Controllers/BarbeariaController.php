@@ -54,11 +54,11 @@ class BarbeariaController extends Controller
         return response()->json($barbearias);
     }
 
-    public function pegarPorId(Request $request)
+    public function pegarBarbeariaPorUsuarioId(Request $request)
     {
         $id = isset($request["id"]) ? $request["id"] : NULL;
 
-        $barbearias = $this->barbearia->pegarPorId($id);
+        $barbearias = $this->barbearia->pegarBarbeariaPorUsuarioId($id);
 
         return response()->json($barbearias);
     }

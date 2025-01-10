@@ -124,7 +124,7 @@ class Barbearia extends Model
         }
     }
 
-    public function pegarPorId($id)
+    public function pegarBarbeariaPorUsuarioId($id)
     {
         try {
             if (!is_numeric($id)) {

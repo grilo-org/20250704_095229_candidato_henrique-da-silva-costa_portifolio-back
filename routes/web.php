@@ -38,7 +38,7 @@ Route::get("/barbearia/reservas", [BarbeariaController::class, "reservas"])->nam
 Route::get("/barbearia", [BarbeariaController::class, "pegarBarbeariasPorId"])->name("BarbeariaController.pegarBarbeariasPorId");
 Route::get("/barbearias", [BarbeariaController::class, "todos"])->name("BarbeariaController.todos");
 Route::get("/barbearias/filtros", [BarbeariaController::class, "pegarBarbeariasPorFiltro"])->name("BarbeariaController.pegarBarbeariasPorFiltro");
-Route::get("/barbeariasunicas", [BarbeariaController::class, "pegarPorId"])->name("BarbeariaController.pegarPorId");
+Route::get("/barbearias/usuario", [BarbeariaController::class, "pegarBarbeariaPorUsuarioId"])->name("BarbeariaController.pegarPorId");
 Route::post("/barbearia/cadastrar", [BarbeariaController::class, "cadastrar"])->name("BarbeariaController.cadastrar");
 Route::delete("/barbearia/excluir", [BarbeariaController::class, "excluir"])->name("BarbeariaController.excluir");
 Route::put("/barbearia/editar", [BarbeariaController::class, "editar"])->name("BarbeariaController.editar");
