@@ -16,7 +16,7 @@ Após isso, rode (php artisan key:generate), (php artisan optimize) dep
 
 Por fim, inicie o front-end (https://github.com/henrique-da-silva-costa/portifolio-front) para testar.
 
-# Estrutura
+## Estrutura
 
 Foi usado o padrão MVC, mas aqui estão somente os Models, Controllers e Rotas.
 
@@ -24,7 +24,7 @@ A View(FRONT-END) esta separada em outro repositório.
 
 Eu organizei nesse padrão, pois é mais fácil para entender e trabalhar.
 
-# Importante
+## Importante
 
 O recuperar a senha foi feito sem envio de email.
 
