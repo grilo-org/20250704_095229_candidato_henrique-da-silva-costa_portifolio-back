@@ -105,11 +105,16 @@ class Barbearia extends Model
             $filtroCidade = isset($dados["filtroCidade"]) ? $dados["filtroCidade"] : NULL;
             $filtroEstado = isset($dados["filtroEstado"]) ? $dados["filtroEstado"] : NULL;
             $filtroCep = isset($dados["filtroCep"]) ? $dados["filtroCep"] : NULL;
+            $filtroNome = isset($dados["filtroNome"]) ? $dados["filtroNome"] : NULL;
 
             $sql = DB::table($this->tabela);
             $sql->join($this->tabelaHorario, "{$this->tabela}.id", "=", "{$this->tabelaHorario}.barbearia_id");
             $sql->join($this->tabelaServico, "{$this->tabela}.id", "=", "{$this->tabelaServico}.barbearia_id");
             $sql->select(["{$this->tabela}.*"])->distinct("{$this->tabela}.id");
+            if ($filtroNome) {
+                $sql->where("{$this->tabela}.nome", "LIKE", "{$filtroNome}%");
+            }
+
             if ($filtroCep) {
                 $sql->where("{$this->tabela}.cep", "LIKE", "{$filtroCep}%");
             }
