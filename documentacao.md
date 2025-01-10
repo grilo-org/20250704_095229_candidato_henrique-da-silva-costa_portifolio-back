@@ -1,22 +1,4 @@
-# Projeto barbearias BACK-END
-
-## Para iniciar projeto
-
-Tenha o composer instalado em sua maquina.
-
-Em seguida abra o projeto e rode no teminal (composer install).
-
-Depois tem um arquivo .env.example, renomeie para .env.
-
-Agora nesse arquivo você vai configurar o seu banco de dados desse jeito ![image](https://github.com/user-attachments/assets/c7df2030-0cdd-485e-9772-38a8220b21e8)
-
-O banco para baixar está no arquivo SQL.sql
-
-Após isso, rode (php artisan key:generate), (php artisan optimize) depois (php artisan serve)
-
-Por fim, inicie o front-end (https://github.com/henrique-da-silva-costa/portifolio-front) para testar.
-
-## Estrutura
+# Estrutura
 
 Foi usado o padrão MVC, mas aqui estão somente os Models, Controllers e Rotas.
 
@@ -24,15 +6,15 @@ A View(FRONT-END) esta separada em outro repositório.
 
 Eu organizei nesse padrão, pois é mais fácil para entender e trabalhar.
 
-## Importante
+# Importante
 
 O recuperar a senha foi feito sem envio de email.
 
 Ele só verifica se o email existe, ele existindo vai para a página onde você redefine a senha.
 
-### Models
+## Models
 
-#### Barbearia
+### Barbearia
 
 * todos 
     ->Lista todas as barbearias trazendo (nome e id)
@@ -57,7 +39,7 @@ Ele só verifica se o email existe, ele existindo vai para a página
 * excluir
     ->Exclui uma barbearia.
 
-#### Horário
+### Horário
 
 * todosNormal 
     ->Lista todos os horários pelo parâmetro(barbearia_id)
@@ -76,7 +58,7 @@ Ele só verifica se o email existe, ele existindo vai para a página
     ->Exclui um horário parâmetro(id)
 
 
-#### Reservas
+### Reservas
 * todos
     ->Lista todas as reservas
 * pegarPorId
@@ -96,7 +78,7 @@ Ele só verifica se o email existe, ele existindo vai para a página
     ->Exclui uma reserva parâmetro(id)
 
 
-#### Serviço
+### Serviço
 * todosNormal 
     ->Lista todos os serviços pelo parâmetro(barbearia_id)
 * todos
@@ -115,7 +97,7 @@ Ele só verifica se o email existe, ele existindo vai para a página
     ->Excluir um serviço parâmetro(id)
 
 
-#### Usuário
+### Usuário
 * pegarPorId    
     ->Retorna o usuário pelo parâmetro(id)
 * cadastro
@@ -131,13 +113,13 @@ Ele só verifica se o email existe, ele existindo vai para a página
 * recuperarSenha
     ->Verifica se o email passa por parâmetro existe, caso exista, a senha será editada.
 
-### Views - FRONT-END
+## Views - FRONT-END
 
 Está separada no front -> https://github.com/henrique-da-silva-costa/portifolio-front
 
-### Controllers
+## Controllers
 
-#### BarbeariaController
+### BarbeariaController
 
 * reservas
     ->Lista todas as reservas de cada barbearia pelo parâmetro(barbearia_id)
@@ -157,7 +139,7 @@ Está separada no front -> https://github.com/henrique-da-silva-costa/porti
     ->Verifica se existe a barbearia, caso ele não exista.
     ele é excluído.
 
-#### HorarioController
+### HorarioController
 * horariosNormal
     ->Lista todos os horarios pelo parametro(barbearia_id)
 * horários
@@ -171,13 +153,13 @@ Está separada no front -> https://github.com/henrique-da-silva-costa/porti
 * excluir
     ->Verifica se existe o horário, caso ele não exista é excluído.
 
-#### PagamentoController
+### PagamentoController
 * pagamentoCartao
     ->Valida as informações do catão, faz uma requisição para a API do PagSeguro, dando tudo certo faz o pagamento.
 * pagamentoPix
     ->Gera um qrCode PIX caso ele seja escaneado da um erro pois não está homologado, mas ele funciona e aprece no painel de desenvolvimento do PagSeguro.  
 
-#### ReservasController
+### ReservasController
 * todasReservas
     ->Lista todas as reservas
 * reserva
@@ -196,7 +178,7 @@ Está separada no front -> https://github.com/henrique-da-silva-costa/porti
     ->Verifca se existe a reserva, caso ela não exista
     ela é excluída.
 
-#### ServicoController
+### ServicoController
 * servicosNormal
     ->Lista todos os serviços pelo parâmetro(barbearia_id).
 * serviços
@@ -210,7 +192,7 @@ Está separada no front -> https://github.com/henrique-da-silva-costa/porti
 * excluir
     ->Verifica se existe o serviço, caso ele não exista, é excluído.
 
-#### UsuarioController
+### UsuarioController
 * pegarUsuario
     ->Retorna o usuário pelo parâmetro(id).
 * cadastrar
@@ -224,9 +206,9 @@ Está separada no front -> https://github.com/henrique-da-silva-costa/porti
 * recuperarsenha
     ->Valida os campos(senha, novasenha) verifica se eles são iguais, caso sejam a senha do usuário é alterada
 
-### Rotas
+## Rotas
 
-#### LOGIN
+### LOGIN
 get(usuario)->UsuarioController->pegarUsuario
 post(cadastrar/usuario)->UsuarioController->cadastrar
 post(login)->UsuarioController->login
@@ -234,7 +216,7 @@ post(loginmaster)->UsuarioController->loginMaster
 post(recuperarsenha)->UsuarioController->recuperarsenha
 post(recuperarsenha/email)->UsuarioController->recuperarsenhaemail
 
-#### RESERVAS
+### RESERVAS
 get(/reservas/horarios)->ReservasController->todosHorarios
 get(/reservas/servicos)->ReservasController->todosServicos
 get(/reservas)->ReservasController->todasReservas
@@ -244,12 +226,12 @@ put(/reserva)->ReservasController->editar
 delete(/reserva)->ReservasController->excluir
 post(/reserva/verificar)->ReservasController->existeReserva
 
-#### PAGAMMENTO
+### PAGAMMENTO
 get(/chave)->PagamentoController->chevePuvblica
 post(/pagamentocartao)->PagamentoController->pagamentoCartao
 get(/pagamentopix)->PagamentoController->pagamentoPix
 
-#### BARBEARIA
+### BARBEARIA
 get(/barbearia/reservas)->BarbeariaControlle->reservas
 get(/barbearia)->BarbeariaControlle->pegarBarbeariasPorId
 get(/barbearias)->BarbeariaControlle->todos
@@ -259,7 +241,7 @@ post(/barbearia/cadastrar)->BarbeariaControlle->cadastrar
 delete(/barbearia/excluir)->BarbeariaControlle->excluir
 put(/barbearia/editar)->BarbeariaControlle->editar
 
-#### HORÁRIO
+### HORÁRIO
 get(/horario)->HorarioController->horario
 get(/barbearia/horarios/normal)->HorarioController->horariosNormal
 get(/barbearia/horarios)->HorarioController->horarios
@@ -267,13 +249,11 @@ post(/barbearia/cadastrar/horario)->HorarioController->cadastrar
 put(/barbearia/horarios/editar)->HorarioController->editar
 delete(/barbearia/horarios/excluir)->HorarioController->excluir
 
-#### SERVIÇO
+### SERVIÇO
 get(/servico)->ServicoController->servico
 get(/barbearia/servicos/normal)->ServicoController->servicosNormal
 get(/barbearia/servicos)->ServicoController->servicos
 post(/barbearia/cadastrar/servico)->ServicoController->cadastrar
 put(/barbearia/servicos/editar)->ServicoController->editar
 delete(/barbearia/servicos/excluir)->ServicoController->excluir
-
-
 
