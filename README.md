@@ -28,3 +28,5 @@ O banco para baixar está no arquivo SQL.sql
 Após isso, rode (php artisan key:generate), (php artisan storage:link), (php artisan optimize) depois (php artisan serve)
 
 Por fim, inicie o front-end -> https://github.com/henrique-da-silva-costa/portifolio-front
+
+## Documentantação https://github.com/henrique-da-silva-costa/portifolio-back/blob/main/documentacao.md
