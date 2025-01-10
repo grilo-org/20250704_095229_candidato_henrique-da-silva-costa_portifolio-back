@@ -29,4 +29,5 @@ Após isso, rode (php artisan key:generate), (php artisan storage:link),�
 
 Por fim, inicie o front-end -> https://github.com/henrique-da-silva-costa/portifolio-front
 
-## Documentantação https://github.com/henrique-da-silva-costa/portifolio-back/blob/main/documentacao.md
+## Documentantação
+### https://github.com/henrique-da-silva-costa/portifolio-back/blob/main/documentacao.md
