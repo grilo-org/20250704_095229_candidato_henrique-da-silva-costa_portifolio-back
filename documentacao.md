@@ -132,50 +132,50 @@ Está separada no f -> https://github.com/henrique-da-silva-costa/portifolio
 ## ROTAS
 
 ### LOGIN
-get(usu ->UsuarioContr ->pegarUsuario
-post(cadastrar/usu ->UsuarioContr ->cadastrar
-post(l ->UsuarioContr ->login
-post(loginma ->UsuarioContr ->loginMaster
-post(recuperars ->UsuarioContr ->recuperarsenha
-post(recuperarsenha/e ->UsuarioContr ->recuperarsenhaemail
+get(usuario)->UsuarioController->pegarUsuario
+post(cadastrar/usuario)->UsuarioController->cadastrar
+post(login)->UsuarioController->login
+post(loginmaster)->UsuarioController->loginMaster
+post(recuperarsenha)->UsuarioController->recuperarsenha
+post(recuperarsenha/email)->UsuarioController->recuperarsenhaemail
 
 ### RESERVAS
-get(/reservas/hora ->ReservasContr ->todosHorarios
-get(/reservas/serv ->ReservasContr ->todosServicos
-get(/rese ->ReservasContr ->todasReservas
-get(/res ->ReservasContr ->reserva
-post(/res ->ReservasContr ->cadastrar
-put(/res ->ReservasContr ->editar
-delete(/res ->ReservasContr ->excluir
-post(/reserva/verif ->ReservasContr ->existeReserva
+get(/reservas/horarios)->ReservasController->todosHorarios
+get(/reservas/servicos)->ReservasController->todosServicos
+get(/reservas)->ReservasController->todasReservas
+get(/reserva)->ReservasController->reserva
+post(/reserva)->ReservasController->cadastrar
+put(/reserva)->ReservasController->editar
+delete(/reserva)->ReservasController->excluir
+post(/reserva/verificar)->ReservasController->existeReserva
 
 ### PAGAMMENTO
-get(/c ->PagamentoContr ->chevePuvblica
-post(/pagamentoca ->PagamentoContr ->pagamentoCartao
-get(/pagament ->PagamentoContr ->pagamentoPix
+get(/chave)->PagamentoController->chevePuvblica
+post(/pagamentocartao)->PagamentoController->pagamentoCartao
+get(/pagamentopix)->PagamentoController->pagamentoPix
 
 ### BARBEARIA
-get(/barbearia/rese ->BarbeariaCont ->reservas
-get(/barbe ->BarbeariaCont ->pegarBarbeariasPorId
-get(/barbea ->BarbeariaCont ->todos
-get(/barbearias/fil ->BarbeariaCont ->pegarBarbeariasPorFiltro
-get(/barbearias/usu ->BarbeariaCont ->pegarBarbeariaPorUsuarioId
-post(/barbearia/cadas ->BarbeariaCont ->cadastrar
-delete(/barbearia/exc ->BarbeariaCont ->excluir
-put(/barbearia/ed ->BarbeariaCont ->editar
+get(/barbearia/reservas)->BarbeariaControlle->reservas
+get(/barbearia)->BarbeariaControlle->pegarBarbeariasPorId
+get(/barbearias)->BarbeariaControlle->todos
+get(/barbearias/filtros)->BarbeariaControlle->pegarBarbeariasPorFiltro
+get(/barbearias/usuario)->BarbeariaControlle->pegarBarbeariaPorUsuarioId
+post(/barbearia/cadastrar)->BarbeariaControlle->cadastrar
+delete(/barbearia/excluir)->BarbeariaControlle->excluir
+put(/barbearia/editar)->BarbeariaControlle->editar
 
 ### HORÁRIO
-get(/hor ->HorarioContr ->horario
-get(/barbearia/horarios/no ->HorarioContr ->horariosNormal
-get(/barbearia/hora ->HorarioContr ->horarios
-post(/barbearia/cadastrar/hor ->HorarioContr ->cadastrar
-put(/barbearia/horarios/ed ->HorarioContr ->editar
-delete(/barbearia/horarios/exc ->HorarioContr ->excluir
+get(/horario)->HorarioController->horario
+get(/barbearia/horarios/normal)->HorarioController->horariosNormal
+get(/barbearia/horarios)->HorarioController->horarios
+post(/barbearia/cadastrar/horario)->HorarioController->cadastrar
+put(/barbearia/horarios/editar)->HorarioController->editar
+delete(/barbearia/horarios/excluir)->HorarioController->excluir
 
 ### SERVIÇO
-get(/ser ->ServicoContr ->servico
-get(/barbearia/servicos/no ->ServicoContr ->servicosNormal
-get(/barbearia/serv ->ServicoContr ->servicos
-post(/barbearia/cadastrar/ser ->ServicoContr ->cadastrar
-put(/barbearia/servicos/ed ->ServicoContr ->editar
-delete(/barbearia/servicos/exc ->ServicoContr ->excluir
+get(/servico)->ServicoController->servico
+get(/barbearia/servicos/normal)->ServicoController->servicosNormal
+get(/barbearia/servicos)->ServicoController->servicos
+post(/barbearia/cadastrar/servico)->ServicoController->cadastrar
+put(/barbearia/servicos/editar)->ServicoController->editar
+delete(/barbearia/servicos/excluir)->ServicoController->excluir
