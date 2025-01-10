@@ -72,11 +72,11 @@ Ele só verifica se o email existe, ele existindo vai para a página
 * existeSenha ->Verifica se a senha já existe.
 * recuperarSenha ->Verifica se o email passa por parâmetro existe, caso exista, a senha será editada.
 
-## Views - FRONT-END
+## Views - FRONT-END
 
 Está separada no f -> https://github.com/henrique-da-silva-costa/portifolio-front
 
-## Controllers
+## Controllers
 
 ### BarbeariaController
 
