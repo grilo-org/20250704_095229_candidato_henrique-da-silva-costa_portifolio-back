@@ -144,7 +144,7 @@ post(recuperarsenha/email)->UsuarioController->recuperarsenhaemail
 
 
 ### RESERVAS
-get (/reservas/horarios) ->ReservasController->todosHorarios
+get(/reservas/horarios)->ReservasController->todosHorarios
 
 get(/reservas/servicos)->ReservasController->todosServicos
 
