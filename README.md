@@ -1,5 +1,10 @@
 # Projeto barbearias BACK-END
 
+## Tecnologias usadas
+
+Front-end (React/Bootstrap)
+Back-end(PHP/Laravel)
+
 ## DESCRIÇÃO
 
 Esse projeto é um sistema voltado para barbearias.
