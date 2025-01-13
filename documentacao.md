@@ -2,7 +2,7 @@
 
 Foi usado o padrão MVC, mas aqui estão somente os Models, Controllers e Rotas.
 
-A View(FRONT-END) esta separada em outro repositório.
+A View(FRONT-END) está separada em outro repositório.
 
 Eu organizei nesse padrão, pois é mais fácil para entender e trabalhar.
 
@@ -10,13 +10,13 @@ Eu organizei nesse padrão, pois é mais fácil para entender e trabal
 
 O recuperar a senha foi feito sem envio de email.
 
-Ele só verifica se o email existe, ele existindo vai para a página onde você redefine a senha.
+Ele só verifica se o e-mail existe, ele existindo vai para a página onde você redefine a senha.
 
 ## Models
 
 ### Barbearia
 
-* todos  ->Lista todas as barbearias trazendo (nome e id)
+* todos ->Lista todas as barbearias trazendo (nome e id)
 * todasDisponiveis ->Lista todas as barbiérias com horário e serviço cadastrado
 * pegarReservasFeitas ->Lista todas as reservas de cada barbearia pelo parâmetro(barbearia_id)
 * pegarBarbeariasPorId ->Retorna a barbearia pelo parâmetro(id)
