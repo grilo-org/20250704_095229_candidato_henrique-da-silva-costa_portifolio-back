@@ -131,49 +131,81 @@ Ele só verifica se o e-mail existe, ele existindo vai para a págin
 
 ### LOGIN
 get(usuario)->UsuarioController->pegarUsuario
+
 post(cadastrar/usuario)->UsuarioController->cadastrar
+
 post(login)->UsuarioController->login
+
 post(loginmaster)->UsuarioController->loginMaster
+
 post(recuperarsenha)->UsuarioController->recuperarsenha
+
 post(recuperarsenha/email)->UsuarioController->recuperarsenhaemail
+
 
 ### RESERVAS
 get(/reservas/horarios)->ReservasController->todosHorarios
+
 get(/reservas/servicos)->ReservasController->todosServicos
+
 get(/reservas)->ReservasController->todasReservas
+
 get(/reserva)->ReservasController->reserva
+
 post(/reserva)->ReservasController->cadastrar
+
 put(/reserva)->ReservasController->editar
+
 delete(/reserva)->ReservasController->excluir
+
 post(/reserva/verificar)->ReservasController->existeReserva
 
 ### PAGAMMENTO
 get(/chave)->PagamentoController->chevePuvblica
+
 post(/pagamentocartao)->PagamentoController->pagamentoCartao
+
 get(/pagamentopix)->PagamentoController->pagamentoPix
 
 ### BARBEARIA
 get(/barbearia/reservas)->BarbeariaControlle->reservas
+
 get(/barbearia)->BarbeariaControlle->pegarBarbeariasPorId
+
 get(/barbearias)->BarbeariaControlle->todos
+
 get(/barbearias/filtros)->BarbeariaControlle->pegarBarbeariasPorFiltro
+
 get(/barbearias/usuario)->BarbeariaControlle->pegarBarbeariaPorUsuarioId
+
 post(/barbearia/cadastrar)->BarbeariaControlle->cadastrar
+
 delete(/barbearia/excluir)->BarbeariaControlle->excluir
+
 put(/barbearia/editar)->BarbeariaControlle->editar
 
 ### HORÁRIO
 get(/horario)->HorarioController->horario
+
 get(/barbearia/horarios/normal)->HorarioController->horariosNormal
+
 get(/barbearia/horarios)->HorarioController->horarios
+
 post(/barbearia/cadastrar/horario)->HorarioController->cadastrar
+
 put(/barbearia/horarios/editar)->HorarioController->editar
+
 delete(/barbearia/horarios/excluir)->HorarioController->excluir
 
 ### SERVIÇO
 get(/servico)->ServicoController->servico
+
 get(/barbearia/servicos/normal)->ServicoController->servicosNormal
+
 get(/barbearia/servicos)->ServicoController->servicos
+
 post(/barbearia/cadastrar/servico)->ServicoController->cadastrar
+
 put(/barbearia/servicos/editar)->ServicoController->editar
+
 delete(/barbearia/servicos/excluir)->ServicoController->excluir
