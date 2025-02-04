@@ -44,7 +44,6 @@ class Reservas extends Model
         }
     }
 
-
     public function todosHorarios()
     {
         try {
